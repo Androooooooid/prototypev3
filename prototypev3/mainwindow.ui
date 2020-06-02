@@ -19,7 +19,7 @@
      <rect>
       <x>690</x>
       <y>230</y>
-      <width>151</width>
+      <width>161</width>
       <height>81</height>
      </rect>
     </property>
@@ -34,6 +34,9 @@
        <width>131</width>
        <height>24</height>
       </rect>
+     </property>
+     <property name="acceptDrops">
+      <bool>false</bool>
      </property>
      <property name="text">
       <string>Тестовый режим</string>
@@ -55,9 +58,58 @@
       <bool>true</bool>
      </property>
      <property name="checked">
-      <bool>false</bool>
+      <bool>true</bool>
      </property>
     </widget>
+   </widget>
+   <widget class="QPushButton" name="pushButton">
+    <property name="geometry">
+     <rect>
+      <x>740</x>
+      <y>160</y>
+      <width>85</width>
+      <height>28</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Отладка</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>50</y>
+      <width>63</width>
+      <height>18</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Контакты</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_2">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>80</y>
+      <width>321</width>
+      <height>111</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Тестовая информация</string>
+    </property>
+   </widget>
+   <widget class="QComboBox" name="selectTranslate">
+    <property name="geometry">
+     <rect>
+      <x>740</x>
+      <y>20</y>
+      <width>86</width>
+      <height>26</height>
+     </rect>
+    </property>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menuBar">
@@ -66,7 +118,7 @@
      <x>0</x>
      <y>0</y>
      <width>860</width>
-     <height>28</height>
+     <height>23</height>
     </rect>
    </property>
   </widget>

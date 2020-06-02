@@ -14,9 +14,16 @@ TEMPLATE = app
 
 SOURCES += main.cpp\
         mainwindow.cpp \
-    loggingcategories.cpp
+    loggingcategories.cpp \
+    mysetting.cpp
 
 HEADERS  += mainwindow.h \
-    loggingcategories.h
+    loggingcategories.h \
+    mysetting.h
+
+TRANSLATIONS = QtLanguage_en.ts \
+               QtLanguage_ru.ts \
+               QtLanguage_de.ts \
+               QtLanguage_cn.ts
 
 FORMS    += mainwindow.ui

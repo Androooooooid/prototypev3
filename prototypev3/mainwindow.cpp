@@ -3,6 +3,11 @@
 #include <QApplication>
 #include <QProcess>
 #include "loggingcategories.h"
+#include "mysetting.h"
+#include "QDebug"
+#include <QTranslator>
+#include <QLibraryInfo>
+
 
 
 MainWindow::MainWindow(QWidget *parent) :
@@ -12,11 +17,22 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
     this->setWindowTitle(APPLICATION_NAME);
     readSettings();
+
+    ui->selectTranslate->addItems(QStringList() << "ru_RU" << "en_US" << "de_DE" << "cn_CN");
 }
 
 MainWindow::~MainWindow()
 {
     delete ui;
+
+}
+
+void MainWindow::changeEvent(QEvent *event)
+{
+    // В случае получения события изменения языка приложения
+    if (event->type() == QEvent::LanguageChange) {
+        ui->retranslateUi(this);    // переведём окно заново
+    }
 }
 
 void MainWindow::closeEvent(QCloseEvent * event)
@@ -41,12 +57,27 @@ void MainWindow::readSettings()
 
 void MainWindow::on_battleMode_clicked()
 {
+    class mysetting;
     qApp->quit();
     QProcess::startDetached(qApp->arguments()[0], qApp->arguments());
+
 }
 
 void MainWindow::on_testMode_clicked()
 {
     qApp->quit();
     QProcess::startDetached(qApp->arguments()[0], qApp->arguments());
+}
+
+
+
+void MainWindow::on_pushButton_clicked()
+{
+    qDebug() << "TEST";
+}
+
+void MainWindow::on_selectTranslate_currentIndexChanged(const QString &arg2)
+{
+    qtLanguageTranslator.load("QtLanguage_" + arg2, ".");
+    qApp->installTranslator(&qtLanguageTranslator);
 }

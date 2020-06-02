@@ -6,6 +6,8 @@
 #include <QAction>
 #include <QSettings>
 #include <QMessageBox>
+#include <QTranslator>
+#include <QEvent>
 
 #define ORGANIZATION_NAME "ФНПЦ АО НПО Марс"
 #define ORGANIZATION_DOMAIN "www.npomars.com"
@@ -24,6 +26,8 @@ public:
     ~MainWindow();
 
     void readSettings();
+    void changeEvent(QEvent * event) override;
+
 protected:
     void closeEvent(QCloseEvent * event);
 
@@ -32,8 +36,13 @@ private slots:
 
     void on_testMode_clicked();
 
+    void on_pushButton_clicked();
+
+    void on_selectTranslate_currentIndexChanged(const QString &arg1);
+
 private:
     Ui::MainWindow *ui;
+    QTranslator qtLanguageTranslator;
 };
 
 #endif // MAINWINDOW_H
